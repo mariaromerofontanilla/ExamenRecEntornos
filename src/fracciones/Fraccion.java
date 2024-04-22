@@ -1,7 +1,23 @@
 package fracciones;
 
+/**
+ * Este es el examen de recuperacion el cual trata de un 
+ * ejecicio que se llama fraccion
+ * que trata de que el usuario le da un numero y te lo fracciona
+ * 
+ * @author mromero
+ * @version 1.0
+ */
 public class Fraccion {
+	/**
+	 * Este es el aitributo num que sera el numero que da y lo ponemos en private porque
+	 * solo se utilizara en esta clase
+	 */
 	private int num;
+	/**
+	 * Este es el atributo den y esta en private porque solo se utilizara en esta
+	 * clase
+	 */
 	private int den;
 	
 	
@@ -13,14 +29,14 @@ public class Fraccion {
 		
 	}
 	
-	//Constructor con parámetros
+	//Constructor con parï¿½metros
 	public Fraccion (int num,int den) {
 		//debo evitar crear fracciones con 0 en el divisor
 		this.num=num;
 		if(den==0)
 			den=1;
 		this.den=den;
-		//devuelvo la fracción simplificada
+		//devuelvo la fracciï¿½n simplificada
 		simplificar();
 	}
 	
@@ -43,7 +59,12 @@ public class Fraccion {
 		return den;
 	}
 	
-	 //Cálculo del máximo común divisor por el algoritmo de Euclides                                               
+	 //Cï¿½lculo del mï¿½ximo comï¿½n divisor por el algoritmo de Euclides 
+	/**
+	 * Este es el el metodo que,
+	 * calcula del valor maximo comun divisor por el algoritmo de Euclides 
+	 * @return devuelve el valor minimo, el cual es un numero entero
+	 */
     private int mcd() {
         int maximo = Math.max(Math.abs(num), Math.abs(den));
         int minimo = Math.min(Math.abs(num), Math.abs(den));
@@ -58,15 +79,23 @@ public class Fraccion {
         return minimo;
     }
     
-    //método para simplificar fracciones
+    //mï¿½todo para simplificar fracciones
+    /**
+     * Este metodo no devuelve nada y lo que hace
+     * es simplificar el numero
+     */
     public void simplificar() {
     	int n=mcd();
     	num=num/n;
     	den=den/n;
     }
     
-    //Método toString
-    
+    //Mï¿½todo toString
+    /**
+     * Este es el metodo ToString en el cual viene la informacion que 
+     * ve el usuario, y cada vez que se cambia algun valor este se actualizara
+     * @return devuelve una cadena
+     */
     public String toString() {
     	String mensaje = num+ "/"+den;
     	return mensaje;
@@ -75,7 +104,12 @@ public class Fraccion {
     
     
     //Sumar fracciones
-    
+    /**
+     * Este es el metodo en el cual se suma las fracciones
+     * @param f el parametro f hara falta durante el proceso de suma, el cual se usara
+     * para analizar o valorar una situaciÃ³n.
+     * @return devolvera el objeto aux, el cual devolvera el resultado de la suma
+     */
     public Fraccion sumar(Fraccion f) {
     	Fraccion aux= new Fraccion();
     	aux.num=num*f.den+den*f.num;
@@ -86,7 +120,12 @@ public class Fraccion {
     }
     
     //Restar fracciones
-    
+    /**
+     * Este es el metodo en el cual se resta las fracciones
+     * @param f el parametro f hara falta durante el proceso de la resta, el cual se usara
+     * para analizar o valorar una situaciÃ³n.
+     * @return devolvera el objeto aux, el cual devolvera el resultado de la resta
+     */
     public Fraccion restar(Fraccion f) {
     	Fraccion aux=new Fraccion();
     	aux.num=num*f.den-den*f.num;
@@ -98,7 +137,12 @@ public class Fraccion {
     }
     
 //Multiplicar fracciones
-    
+    /**
+     * Este es el metodo en el cual se multiplica las fracciones
+     * @param f el parametro f hara falta durante el proceso de la multiplicacion, el cual se usara
+     * para analizar o valorar una situaciÃ³n.
+     * @return devolvera el objeto aux, el cual devuleve el resultado de la multiplicacion
+     */
     public Fraccion multiplicar(Fraccion f) {
     	Fraccion aux=new Fraccion();
     	aux.num=num*f.num;
@@ -109,7 +153,12 @@ public class Fraccion {
     }
     
 //Dividir fracciones
-    
+    /**
+      * Este es el metodo en el cual se divide las fracciones
+     * @param f el parametro f hara falta durante el proceso de divicion, el cual se usara
+     * para analizar o valorar una situaciÃ³n.
+     * @return devolvera el objeto aux, el cual devuleve el resultado de la divicion
+     */
     public Fraccion dividir(Fraccion f) {
     	Fraccion aux=new Fraccion();
     	aux.num=num*f.den;
