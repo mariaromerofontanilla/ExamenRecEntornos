@@ -1,4 +1,4 @@
-package fracciones;
+package examen;
 
 /**
  * Este es el examen de recuperacion el cual trata de un 
@@ -33,8 +33,9 @@ public class Fraccion {
 	public Fraccion (int num,int den) {
 		//debo evitar crear fracciones con 0 en el divisor
 		this.num=num;
-		if(den==0)
+		if(den==0) {
 			den=1;
+		}
 		this.den=den;
 		//devuelvo la fracci�n simplificada
 		simplificar();
@@ -59,6 +60,7 @@ public class Fraccion {
 		return den;
 	}
 	
+<<<<<<< HEAD:src/fracciones/Fraccion.java
 	 //C�lculo del m�ximo com�n divisor por el algoritmo de Euclides 
 	/**
 	 * Este es el el metodo que,
@@ -66,6 +68,10 @@ public class Fraccion {
 	 * @return devuelve el valor minimo, el cual es un numero entero
 	 */
     private int mcd() {
+=======
+	 //C�lculo del m�ximo com�n divisor por el algoritmo de Euclides                                               
+    private int maxComunDivisor() {
+>>>>>>> Refactorizacion:src/examen/Fraccion.java
         int maximo = Math.max(Math.abs(num), Math.abs(den));
         int minimo = Math.min(Math.abs(num), Math.abs(den));
         int resto = maximo % minimo;
@@ -80,30 +86,43 @@ public class Fraccion {
     }
     
     //m�todo para simplificar fracciones
+<<<<<<< HEAD:src/fracciones/Fraccion.java
     /**
      * Este metodo no devuelve nada y lo que hace
      * es simplificar el numero
      */
+=======
+>>>>>>> Refactorizacion:src/examen/Fraccion.java
     public void simplificar() {
-    	int n=mcd();
-    	num=num/n;
-    	den=den/n;
+    	int numero=maxComunDivisor();
+    	num=num/numero;
+    	den=den/numero;
     }
     
     //M�todo toString
+<<<<<<< HEAD:src/fracciones/Fraccion.java
     /**
      * Este es el metodo ToString en el cual viene la informacion que 
      * ve el usuario, y cada vez que se cambia algun valor este se actualizara
      * @return devuelve una cadena
      */
+=======
+    
+>>>>>>> Refactorizacion:src/examen/Fraccion.java
     public String toString() {
-    	String mensaje = num+ "/"+den;
+    	String mensaje = extracted();
     	return mensaje;
     	
     }
+
+	private String extracted() {
+		String mensaje = num+ "/"+den;
+		return mensaje;
+	}
     
     
     //Sumar fracciones
+<<<<<<< HEAD:src/fracciones/Fraccion.java
     /**
      * Este es el metodo en el cual se suma las fracciones
      * @param f el parametro f hara falta durante el proceso de suma, el cual se usara
@@ -111,15 +130,21 @@ public class Fraccion {
      * @return devolvera el objeto aux, el cual devolvera el resultado de la suma
      */
     public Fraccion sumar(Fraccion f) {
+=======
+    
+    public Fraccion sumar(Fraccion factor) {
+>>>>>>> Refactorizacion:src/examen/Fraccion.java
     	Fraccion aux= new Fraccion();
-    	aux.num=num*f.den+den*f.num;
-    	aux.den=den*f.den;
+    	int cruce1 = num*factor.den+den*factor.num;
+		aux.num=cruce1;
+    	aux.den=den*factor.den;
     	aux.simplificar();
     	return aux;
     	
     }
     
     //Restar fracciones
+<<<<<<< HEAD:src/fracciones/Fraccion.java
     /**
      * Este es el metodo en el cual se resta las fracciones
      * @param f el parametro f hara falta durante el proceso de la resta, el cual se usara
@@ -127,9 +152,14 @@ public class Fraccion {
      * @return devolvera el objeto aux, el cual devolvera el resultado de la resta
      */
     public Fraccion restar(Fraccion f) {
+=======
+    
+    public Fraccion restar(Fraccion factor) {
+>>>>>>> Refactorizacion:src/examen/Fraccion.java
     	Fraccion aux=new Fraccion();
-    	aux.num=num*f.den-den*f.num;
-    	aux.den=den*f.den;
+    	int cruce2 = num*factor.den-den*factor.num;
+		aux.num=cruce2;
+    	aux.den=den*factor.den;
     	aux.simplificar();
     	return aux;
     	
@@ -137,6 +167,7 @@ public class Fraccion {
     }
     
 //Multiplicar fracciones
+<<<<<<< HEAD:src/fracciones/Fraccion.java
     /**
      * Este es el metodo en el cual se multiplica las fracciones
      * @param f el parametro f hara falta durante el proceso de la multiplicacion, el cual se usara
@@ -144,15 +175,20 @@ public class Fraccion {
      * @return devolvera el objeto aux, el cual devuleve el resultado de la multiplicacion
      */
     public Fraccion multiplicar(Fraccion f) {
+=======
+    
+    public Fraccion multiplicar(Fraccion factor) {
+>>>>>>> Refactorizacion:src/examen/Fraccion.java
     	Fraccion aux=new Fraccion();
-    	aux.num=num*f.num;
-    	aux.den=den*f.den;
+    	aux.num=num*factor.num;
+    	aux.den=den*factor.den;
     	aux.simplificar();
     	return aux;
     	
     }
     
 //Dividir fracciones
+<<<<<<< HEAD:src/fracciones/Fraccion.java
     /**
       * Este es el metodo en el cual se divide las fracciones
      * @param f el parametro f hara falta durante el proceso de divicion, el cual se usara
@@ -160,9 +196,13 @@ public class Fraccion {
      * @return devolvera el objeto aux, el cual devuleve el resultado de la divicion
      */
     public Fraccion dividir(Fraccion f) {
+=======
+    
+    public Fraccion dividir(Fraccion factor) {
+>>>>>>> Refactorizacion:src/examen/Fraccion.java
     	Fraccion aux=new Fraccion();
-    	aux.num=num*f.den;
-    	aux.den=den*f.num;
+    	aux.num=num*factor.den;
+    	aux.den=den*factor.num;
     	aux.simplificar();
     	return aux;
     	
